@@ -1,0 +1,1 @@
+db.items.insert({"name": "Glasses", "price": 20, "sold":"false"})

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" data-ng-app="sculptureApp">
+<head>
+    <title>Alex and Nick's sculpture</title>
+    
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+</head>
+<body>
+	<div class="container-narrow">
+
+		<div class="masthead">
+        	<ul class="nav nav-pills pull-right">
+          		<li class="active"><a href="#">Home</a></li>
+          		<li><a href="#">About</a></li>
+          		<li><a href="#">Contact</a></li>
+        	</ul>
+        	<h3 class="muted">Alex & Nick's Wedding</h3>
+      	</div>
+
+		<hr>
+      
+    	<!-- Placeholder for views -->
+    	<div data-ng-view=""></div>
+    	
+    	<hr>
+
+		<div class="footer">
+        	<p>&copy; Alex & Nick 2013</p>
+      	</div>
+    </div>
+  
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script src="js/murano.js"></script>
+<body/>
+</html>

@@ -1,0 +1,80 @@
+<div class="jumbotron">
+    <h2>The Murano glass sculpture appeal</h2>
+    <img src="img/murano_animales.tiff" class="img-polaroid">
+    <p class="lead">Instead of a normal wedding gift list with pots, pans and toilet roll holders we're thinking of asking people to contribute to a murano glass sculpture which we've lusted after since we went on holiday to Italy years ago.</p>        
+</div>
+
+<div>
+	
+	<br />
+    
+    <div class="well">
+	    <strong><i class="icon-shopping-cart"></i> basket&nbsp; <span class="badge badge-info">{{basket.contents.length}}</span></strong>
+	    <br /><br />
+	    <table class="table">
+	    	<tr data-ng-repeat="item in basket.contents">
+	    		<td> {{ item.name }} </td>
+	    		<td> &#8356; {{ item.price }} .00 </td>
+	    		<td> <button class="btn btn-small btn-primary" type="button" data-ng-click="removeFromBasket(item)">Remove</button></td>
+	    	</tr>
+	    	<tr>
+	    		<th> total: </th>
+	    		<th> &#8356; {{ basket.totalPrice }}.00 </th>
+	    	</tr>
+		</table>
+		<p ng-hide="basket.contents.length==0"><button class="btn btn-large btn-success" data-ng-click="checkout()"> <i class="icon-gift"></i> Checkout </button></p>
+	</div>
+	
+	<br />
+	
+	<form class="form-horizontal">
+		<div class="control-group">
+    		<label class="control-label" for="nameFilter">Filter</label>
+    		<div class="controls">
+      			<input type="text" id="nameFilter" placeholder="Filter" data-ng-model="partFilter"> {{ partFilter }}
+    		</div>
+  		</div>
+  	</form>
+  	
+  	<br />
+  	
+  	<div class="row-fluid">
+  		<ul class="thumbnails">
+    		<li class="span4" data-ng-repeat="part in parts | filter:partFilter | orderBy:['sold','price']">
+      			<div class="thumbnail">
+        			<img data-src="holder.js/300x200" alt="">
+        			<div class="caption">
+          				<h3>{{ part.name }} &nbsp;<span data-ng-show="part.sold" class="label label-important">Sold!</span></h3>
+          				<strong>&#8356;{{ part.price }}.00</strong>
+          				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          				<p data-ng-hide="part.sold"><button class="btn btn-primary" data-ng-click="addToBasket(part)"> <i class="icon-shopping-cart"></i> Add to basket</button></p>
+        			</div>
+      			</div>
+    		</li>
+  		</ul>
+	</div>
+    
+    <br />
+    
+    <form class="form-horizontal">
+  		<div class="control-group">
+    		<label class="control-label" for="newPartName">Name</label>
+    		<div class="controls">
+      			<input type="text" id="newPartName" placeholder="Name" data-ng-model="newPart.name">
+    		</div>
+  		</div>
+  		<div class="control-group">
+    		<label class="control-label" for="newPartPrice">Price</label>
+    		<div class="controls">
+    			<span class="add-on">&#8356;</span>
+  				<input type="text" class="span2" id="newPartPrice" 	data-ng-model="newPart.price" >
+  				<span class="add-on">.00</span>
+    		</div>
+  		</div>
+  		<div class="control-group">
+    		<div class="controls">
+      			<button data-ng-click="buyParts()" class="btn">Add Part</button>
+    		</div>
+  		</div>
+	</form>
+</div>
